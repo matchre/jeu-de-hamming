@@ -1,0 +1,310 @@
+<!DOCTYPE HTML">
+<html lang="fr-FR">
+
+<head>
+<meta charset="iso-8859-1">
+<title>Code de Hamming</title>
+<style type="text/css">
+  g.matricule text {
+    font-family: "Times New Roman", Monospace, Verdana, Sans-Serif;
+    font-size: 30px;
+    stroke: black;
+    fill: white;
+  }
+  table.jeu {
+    background: rgb(192,192,255);
+    border: solid black 1px;
+  }
+  table.jeu tr.sep td {
+    height: 0.2em;
+  }
+  table.jeu tr td.question {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+  }
+  table.jeu tr td.questionmenti {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+    color: rgb(192,0,0);
+  }
+  table.jeu tr td.bouton {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+    text-align: right;
+  }
+</style>
+</head>
+
+<body><div align="center">
+<h1>Le code de Hamming</h1>
+<address><a href="http://perso.univ-rennes1.fr/xavier.caruso/">Xavier Caruso</a></address>
+
+
+<table cellpadding="0" cellspacing="0" border="0" class="jeu">
+
+<tr>
+<td colspan="3">
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" height="450" width="700" onclick="matricules(evt);">
+  <image id="r0000" height="150" width="150" xlink:href="0000.png" />
+  <image id="r0001" height="150" width="150" xlink:href="0001.png" />
+  <image id="r0010" height="150" width="150" xlink:href="0010.png" />
+  <image id="r0011" height="150" width="150" xlink:href="0011.png" />
+  <image id="r0100" height="150" width="150" xlink:href="0100.png" />
+  <image id="r0101" height="150" width="150" xlink:href="0101.png" />
+  <image id="r0110" height="150" width="150" xlink:href="0110.png" />
+  <image id="r0111" height="150" width="150" xlink:href="0111.png" />
+  <image id="r1000" height="150" width="150" xlink:href="1000.png" />
+  <image id="r1001" height="150" width="150" xlink:href="1001.png" />
+  <image id="r1010" height="150" width="150" xlink:href="1010.png" />
+  <image id="r1011" height="150" width="150" xlink:href="1011.png" />
+  <image id="r1100" height="150" width="150" xlink:href="1100.png" />
+  <image id="r1101" height="150" width="150" xlink:href="1101.png" />
+  <image id="r1110" height="150" width="150" xlink:href="1110.png" />
+  <image id="r1111" height="150" width="150" xlink:href="1111.png" />
+
+  <g id="matricules" style="visibility: hidden">
+  <g class="matricule" id="m0000" height="150" width="150">
+    <rect height="40" width="80" x="35" y="80" rx="5" ry="5" style="fill: rgba(10,0,20,0.8)" />
+    <text x="45" y="110">0000</text>
+  </g>
+  <g class="matricule" id="m0001" height="150" width="150">
+    <rect height="40" width="80" x="35" y="80" rx="5" ry="5" style="fill: rgba(10,0,20,0.8)" />
+    <text x="45" y="110">0001</text>
+  </g>
+  <g class="matricule" id="m0010" height="150" width="150">
+    <rect height="40" width="80" x="35" y="80" rx="5" ry="5" style="fill: rgba(10,0,20,0.8)" />
+    <text x="45" y="110">0010</text>
+  </g>
+  <g class="matricule" id="m0011" height="150" width="150">
+    <rect height="40" width="80" x="35" y="80" rx="5" ry="5" style="fill: rgba(10,0,20,0.8)" />
+    <text x="45" y="110">0011</text>
+  </g>
+  <g class="matricule" id="m0100" height="150" width="150">
+    <rect height="40" width="80" x="35" y="80" rx="5" ry="5" style="fill: rgba(10,0,20,0.8)" />
+    <text x="45" y="110">0100</text>
+  </g>
+  <g class="matricule" id="m0101" height="150" width="150">
+    <rect height="40" width="80" x="35" y="80" rx="5" ry="5" style="fill: rgba(10,0,20,0.8)" />
+    <text x="45" y="110">0101</text>
+  </g>
+  <g class="matricule" id="m0110" height="150" width="150">
+    <rect height="40" width="80" x="35" y="80" rx="5" ry="5" style="fill: rgba(10,0,20,0.8)" />
+    <text x="45" y="110">0110</text>
+  </g>
+  <g class="matricule" id="m0111" height="150" width="150">
+    <rect height="40" width="80" x="35" y="80" rx="5" ry="5" style="fill: rgba(10,0,20,0.8)" />
+    <text x="45" y="110">0111</text>
+  </g>
+  <g class="matricule" id="m1000" height="150" width="150">
+    <rect height="40" width="80" x="35" y="80" rx="5" ry="5" style="fill: rgba(10,0,20,0.8)" />
+    <text x="45" y="110">1000</text>
+  </g>
+  <g class="matricule" id="m1001" height="150" width="150">
+    <rect height="40" width="80" x="35" y="80" rx="5" ry="5" style="fill: rgba(10,0,20,0.8)" />
+    <text x="45" y="110">1001</text>
+  </g>
+  <g class="matricule" id="m1010" height="150" width="150">
+    <rect height="40" width="80" x="35" y="80" rx="5" ry="5" style="fill: rgba(10,0,20,0.8)" />
+    <text x="45" y="110">1010</text>
+  </g>
+  <g class="matricule" id="m1011" height="150" width="150">
+    <rect height="40" width="80" x="35" y="80" rx="5" ry="5" style="fill: rgba(10,0,20,0.8)" />
+    <text x="45" y="110">1011</text>
+  </g>
+  <g class="matricule" id="m1100" height="150" width="150">
+    <rect height="40" width="80" x="35" y="80" rx="5" ry="5" style="fill: rgba(10,0,20,0.8)" />
+    <text x="45" y="110">1100</text>
+  </g>
+  <g class="matricule" id="m1101" height="150" width="150">
+    <rect height="40" width="80" x="35" y="80" rx="5" ry="5" style="fill: rgba(10,0,20,0.8)" />
+    <text x="45" y="110">1101</text>
+  </g>
+  <g class="matricule" id="m1110" height="150" width="150">
+    <rect height="40" width="80" x="35" y="80" rx="5" ry="5" style="fill: rgba(10,0,20,0.8)" />
+    <text x="45" y="110">1110</text>
+  </g>
+  <g class="matricule" id="m1111" height="150" width="150">
+    <rect height="40" width="80" x="35" y="80" rx="5" ry="5" style="fill: rgba(10,0,20,0.8)" />
+    <text x="45" y="110">1111</text>
+  </g>
+  </g>
+
+  <rect id="masque" x="0" y="0" height="450" width="900" fill="none" />
+
+  <g id="choisi" height="150" width="150" transform="translate(-200 -200)">
+    <image id="ichoisi" height="150" width="150" xlink:href="" />
+    <g id="mchoisi" style="visibility: hidden;" class="matricule" height="150" width="150">
+      <rect height="40" width="80" x="35" y="80" rx="5" ry="5" style="fill: rgba(10,0,20,0.8)" />
+      <text id="tchoisi" x="45" y="110"></text>
+    </g>
+  </g>
+</svg>
+</td>
+</tr>
+
+<tr>
+<td id="q0" class="question" style="border-top: solid black 1px; padding-top: 0.3em;">
+<input type="checkbox" id="couleur" />
+Votre smiley est-il jaune&#160;?
+</td>
+<td id="q4" class="question" style="border-top: solid black 1px; padding-top: 0.3em;">
+<input type="checkbox" id="noeud" />
+Votre smiley porte-t-il un n&oelig;ud papillon&#160;?
+</td>
+</tr>
+
+<tr>
+<td id="q1" class="question">
+<input type="checkbox" id="lunettes" />
+Votre smiley porte-t-il des lunettes&#160;?
+</td>
+<td id="q5" class="question">
+<input type="checkbox" id="langue" />
+Votre smiley tire-il la langue&#160;?
+</td>
+</tr>
+
+<tr>
+<td id="q2" class="question">
+<input type="checkbox" id="chapeau" />
+Votre smiley porte-t-il un chapeau&#160;?
+</td>
+<td id="q6" class="question" style="padding-bottom: 0.3em;">
+<input type="checkbox" id="mains" />
+Les mains de votre smiley sont-elles visibles&#160;?
+</td>
+</tr>
+
+<tr>
+<td id="q3" class="question">
+<input type="checkbox" id="moustache" />
+Votre smiley porte-t-il une moustache&#160;?
+</td>
+<td class="bouton" style="padding-bottom: 0.3em;">
+<button id="bouton" onClick="decode()" type="button">Deviner</button> 
+</td>
+</tr>
+
+</table>
+
+
+<script type="application/javascript">
+var deja = 0;
+var flag_matricules = 0;
+
+var noms = new Array(
+  "0000", "0001", "0010", "0011",
+  "0100", "0101", "0110", "0111",
+  "1000", "1001", "1010", "1011",
+  "1100", "1101", "1110", "1111"
+);
+var posx = new Array(
+  -5, 120, 250, 450, 100, 0,
+  0, 120, 600, 200, 320, 500,
+  360, 500, 380, 260
+);
+var posy = new Array(
+  0, 0, 0, 260, 240, 300,
+  110, 120, 300, 300, 280, 140, 
+  5, 0, 145, 150
+);
+var cbox = new Array(
+  document.getElementById("couleur"),
+  document.getElementById("lunettes"),
+  document.getElementById("chapeau"),
+  document.getElementById("moustache"),
+  document.getElementById("noeud"),
+  document.getElementById("langue"),
+  document.getElementById("mains")
+);
+
+for (i=0; i<16; i++) {
+  elt = document.getElementById("r" + noms[i]);
+  elt.setAttributeNS(null, "x", posx[i]);
+  elt.setAttributeNS(null, "y", posy[i]);
+  elt = document.getElementById("m" + noms[i]);
+  att = "translate(" + posx[i] + " " + posy[i] + ")";
+  elt.setAttributeNS(null, "transform", att);
+}
+
+function decode() {
+  var a = new Array();
+  for (i = 0; i < 7; i++) {
+    a[i] = cbox[i].checked;
+  }
+  err = -1;
+  if (a[3] != a[4] != a[5] != a[6]) { err += 4; }
+  if (a[1] != a[2] != a[5] != a[6]) { err += 2; }
+  if (a[0] != a[2] != a[4] != a[6]) { err += 1; }
+  if (err > -1) {
+    a[err] = !a[err];
+    // cbox[err].checked = a[err];
+    document.getElementById("q" + err).className = "questionmenti";
+  }
+
+  num = 0;
+  if (a[2]) { num += 8; }
+  if (a[4]) { num += 4; }
+  if (a[5]) { num += 2; }
+  if (a[6]) { num += 1; }
+
+  document.getElementById("masque").setAttributeNS(null, "fill", "rgba(192,192,255,0.9)");
+  document.getElementById("ichoisi").setAttributeNS('http://www.w3.org/1999/xlink', "href", noms[num] + ".png");
+  document.getElementById("tchoisi").innerHTML = noms[num];
+  document.getElementById("choisi").setAttributeNS(null, "transform", "translate(" + posx[num] + " " + posy[num] + ")");
+
+  bouton = document.getElementById("bouton");
+  bouton.innerHTML = "Recommencer";
+  bouton.onclick = init;
+
+  for (i=0; i<7; i++) {
+    cbox[i].disabled = true;
+  }
+}
+
+function init() {
+  rect = document.getElementById("masque");
+  rect.setAttributeNS(null, "fill", "none");
+  document.getElementById("choisi").setAttributeNS(null, "transform", "translate(-200 -200)");
+
+  bouton = document.getElementById("bouton");
+  bouton.innerHTML = "Deviner";
+  bouton.onclick = decode;
+
+  for (i=0; i<7; i++) {
+    cbox[i].disabled = false;
+    cbox[i].checked = false;
+    document.getElementById("q" + i).className = "question";
+  }
+}
+
+function matricules(evt) {
+  if (evt.detail == 1) {
+    if (deja == 0) {
+      deja = 1;
+      window.setTimeout("deja = 0;", 500);
+      return;
+    }
+  }
+  flag_matricules = 1 - flag_matricules;
+  if (flag_matricules) {
+    document.getElementById("matricules").style.visibility = "visible";
+    document.getElementById("mchoisi").style.visibility = "visible";
+  } else {
+    document.getElementById("matricules").style.visibility = "hidden";
+    document.getElementById("mchoisi").style.visibility = "hidden";
+  }
+}
+
+</script>
+
+</div></body>
+
+</html>
